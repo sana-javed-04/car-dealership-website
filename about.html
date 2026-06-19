@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AutoLux | About Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f8f9fb, #eef1f6);
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 18px 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            color: #e63946;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin-left: 26px;
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #e63946;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #e63946;
+            left: 0;
+            bottom: -6px;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* SECTION */
+        section {
+            padding: 90px 70px;
+            background: #fff;
+            margin-top: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: #e63946;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ABOUT CONTENT */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+            max-width: 600px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .about-text ul {
+            list-style: none;
+            line-height: 1.9;
+        }
+
+        .about-text li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .about-text li::before {
+            content: '✔';
+            color: #e63946;
+            margin-right: 8px;
+        }
+
+        .about-img {
+            flex: 1 1 400px;
+            max-width: 500px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .about-img img:hover {
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #111, #1b1b1b);
+            color: #bbb;
+            padding: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        footer h3,
+        footer h4 {
+            color: #fff;
+        }
+
+        footer ul {
+            list-style: none;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        footer p.copy {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 30px;
+            }
+
+            header {
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>AutoLux</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cars.html">Cars</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section>
+        <h2>About AutoLux</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>
+                    AutoLux is a customer-focused car dealership committed to delivering premium quality vehicles,
+                    transparency, and an exceptional buying experience. Our goal is to simplify the car buying
+                    process and ensure complete satisfaction for every customer.
+                </p>
+                <ul>
+                    <li>Certified & thoroughly inspected vehicles</li>
+                    <li>Competitive and transparent pricing</li>
+                    <li>Professional and friendly support team</li>
+                    <li>Trusted by hundreds of happy customers</li>
+                </ul>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc" alt="About AutoLux">
+            </div>
+        </div>
+    </section>
+
+    <!-- ADDITIONAL SECTION - OUR MISSION -->
+    <section>
+        <h2>Our Mission</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>
+                    Our mission at AutoLux is to provide a seamless, trustworthy, and high-quality car buying
+                    experience. We focus on customer satisfaction, verified vehicles, and transparent dealings
+                    to build lasting relationships with our clients.
+                </p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1493238792000-8113da705763" alt="Mission Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- ADDITIONAL SECTION - OUR VISION -->
+    <section>
+        <h2>Our Vision</h2>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Vision Image">
+            </div>
+            <div class="about-text">
+                <p>
+                    We envision AutoLux as the most trusted car dealership in the region, recognized for exceptional
+                    service, high-quality vehicles, and a customer-first approach. Our vision drives us to innovate
+                    and improve continuously.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>AutoLux</h3>
+                <p>A trusted car dealership delivering quality vehicles with honesty and excellent customer service.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>Home</li>
+                    <li>Cars</li>
+                    <li>Services</li>
+                    <li>Blog</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <p>📍 Lahore, Pakistan</p>
+                <p>📞 +92 300 1234567</p>
+                <p>✉ info@autolux.com</p>
+            </div>
+        </div>
+        <p class="copy">© 2025 AutoLux | BSCS Project</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AutoLux | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f8f9fb, #eef1f6);
+            color: #222;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 18px 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            color: #e63946;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin-left: 26px;
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #e63946;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #e63946;
+            left: 0;
+            bottom: -6px;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        /* SECTION COMMON */
+        section {
+            padding: 90px 70px;
+            background: #fff;
+            margin-top: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: #e63946;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* BLOG & SIDEBAR */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: linear-gradient(180deg, #ffffff, #f5f7fb);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .blog-card .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .blog-card .info h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .blog-card .info p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .blog-card .info button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card .info button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.35);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            background: #f9fafb;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #e63946;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            background: #fff;
+            border-radius: 12px;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .sidebar ul li:hover {
+            background: #e63946;
+            color: #fff;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #111, #1b1b1b);
+            color: #bbb;
+            padding: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        footer h3,
+        footer h4 {
+            color: #fff;
+        }
+
+        footer ul {
+            list-style: none;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        footer p.copy {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 30px;
+            }
+
+            header {
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>AutoLux</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cars.html">Cars</a>
+            <a href="service.html">Services</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- BLOG SECTION -->
+    <section>
+        <h2>Latest Blog Posts</h2>
+        <div class="blog-container">
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1493238792000-8113da705763" alt="Buying First Car">
+                    <div class="info">
+                        <h4>Buying Your First Car</h4>
+                        <p>Tips and guidance for first-time buyers to make the right choice when purchasing a car.</p>
+                        <button class="more" data-link="post1.html">Read More</button>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def" alt="Electric Cars">
+                    <div class="info">
+                        <h4>The Future of Electric Cars</h4>
+                        <p>Explore the growing trend of electric vehicles and what it means for car enthusiasts.</p>
+                        <button>Read More</button>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d" alt="Car Maintenance">
+                    <div class="info">
+                        <h4>Car Maintenance Tips</h4>
+                        <p>Essential maintenance tips to keep your car in perfect condition and extend its lifespan.</p>
+                        <button>Read More</button>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1493238792000-8113da705763" alt="Buying First Car">
+                    <div class="info">
+                        <h4>Buying Your First Car</h4>
+                        <p>Tips and guidance for first-time buyers to make the right choice when purchasing a car.</p>
+                        <button>Read More</button>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def" alt="Electric Cars">
+                    <div class="info">
+                        <h4>The Future of Electric Cars</h4>
+                        <p>Explore the growing trend of electric vehicles and what it means for car enthusiasts.</p>
+                        <button>Read More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+                <h3>Categories</h3>
+                <ul>
+                    <li>Buying Tips</li>
+                    <li>Car Maintenance</li>
+                    <li>Electric Vehicles</li>
+                    <li>Financing</li>
+                    <li>Car Reviews</li>
+                </ul>
+                <h3>Popular Posts</h3>
+                <ul>
+                    <li>How to Choose a Used Car</li>
+                    <li>Top 5 SUVs in 2025</li>
+                    <li>Electric vs Gasoline Cars</li>
+                    <li>Saving Money on Car Insurance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>AutoLux</h3>
+                <p>A trusted car dealership delivering quality vehicles with honesty and excellent customer service.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>Home</li>
+                    <li>Cars</li>
+                    <li>Services</li>
+                    <li>Blog</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <p>📍 Lahore, Pakistan</p>
+                <p>📞 +92 300 1234567</p>
+                <p>✉ info@autolux.com</p>
+            </div>
+        </div>
+        <p class="copy">© 2025 AutoLux | BSCS Project</p>
+    </footer>
+
+
+    <script>
+        // Select all more buttons
+        const buttons = document.querySelectorAll('.more');
+
+        // Add click event to each button
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const link = button.getAttribute('data-link'); // Get the link from data attribute
+                window.open(link, '_blank'); // Open in new tab
+            });
+        });
+    </script>
+</body>
+
+</html>

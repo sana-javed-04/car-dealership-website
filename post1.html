@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AutoLux | Blog Post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f8f9fb, #eef1f6);
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 18px 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            color: #e63946;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin-left: 26px;
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e63946;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #e63946;
+            left: 0;
+            bottom: -6px;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* BLOG POST SECTION */
+        section {
+            padding: 90px 70px;
+            background: #fff;
+            margin-top: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 80px;
+            height: 3px;
+            background: #e63946;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .blog-post-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .blog-post-container img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+
+        .blog-post-container img:hover {
+            transform: scale(1.03);
+        }
+
+        .blog-post-container p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .blog-post-container a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-post-container a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(230, 57, 70, 0.35);
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #111, #1b1b1b);
+            color: #bbb;
+            padding: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        footer h3,
+        footer h4 {
+            color: #fff;
+        }
+
+        footer ul {
+            list-style: none;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        footer p.copy {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 30px;
+            }
+
+            header {
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>AutoLux</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cars.html">Cars</a>
+            <a href="services.html">Services</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- BLOG POST SECTION -->
+    <section>
+        <h2>Buying Your First Car</h2>
+        <div class="blog-post-container">
+            <img src="https://images.unsplash.com/photo-1493238792000-8113da705763" alt="Buying First Car">
+            <p>
+                Purchasing your first car can be both exciting and overwhelming. At AutoLux, we guide you through
+                every step of the process, from choosing the right model to financing options and after-sales
+                support. Our experts ensure that you get the best value without compromising on quality.
+            </p>
+            <p>
+                Understanding your needs and budget is essential. Consider factors such as fuel efficiency,
+                maintenance cost, insurance, and long-term reliability before making a choice. Our certified
+                vehicles are thoroughly inspected to provide peace of mind for first-time buyers.
+            </p>
+            <p>
+                Connect with our sales team today to schedule a test drive and experience the difference AutoLux
+                offers. Your first car should be a memorable and satisfying experience, and we are here to make
+                that happen.
+            </p>
+            <a href="blog.html">Back to Blog</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>AutoLux</h3>
+                <p>A trusted car dealership delivering quality vehicles with honesty and excellent customer service.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>Home</li>
+                    <li>Cars</li>
+                    <li>Services</li>
+                    <li>Blog</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <p>📍 Lahore, Pakistan</p>
+                <p>📞 +92 300 1234567</p>
+                <p>✉ info@autolux.com</p>
+            </div>
+        </div>
+        <p class="copy">© 2025 AutoLux | BSCS Project</p>
+    </footer>
+
+</body>
+
+</html>
